@@ -45,8 +45,8 @@ class App extends Component {
     const { accounts, contract } = this.state;
 
     // Stores a given value, 5 by default.
-    const client_value = document.getElementById("input").value;
-    await contract.methods.set(client_value).send({ from: accounts[0] });
+    // const client_value = document.getElementById("input").value;
+    await contract.methods.set(5).send({ from: accounts[0] });
 
     // Get the value from the contract to prove it worked.
     const response = await contract.methods.get().call();
@@ -72,10 +72,10 @@ class App extends Component {
           Try changing the value stored on <strong>line 42</strong> of App.js.
         </p>
         <div>The stored value is: {this.state.storageValue}</div>
-        <div>
+        {/* <div>
           <input type="text" id="input"></input>
           <button type="submit" onClick={this.runExample}>Submit</button>
-        </div>
+        </div> */}
       </div>
     );
   }
